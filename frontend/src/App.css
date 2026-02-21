@@ -1,0 +1,293 @@
+/**
+ * App 컴포넌트 스타일 - Neutral Charcoal & Soft White Theme
+ */
+:root {
+    --primary-green: #10b981;
+    /* Emerald-500 */
+    --primary-hover: #059669;
+    /* Emerald-600 */
+    --secondary-green: #34d399;
+    /* Emerald-400 */
+    --secondary-hover: #047857;
+    /* Emerald-700 */
+
+    /* Pure Neutral Dark Gray (No blue tint) */
+    --bg-dark: #121212;
+    --bg-card: #1e1e1e;
+    --bg-input: #d1d5db;
+    /* Calm, muted light gray/white */
+
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+    --text-input: #111827;
+    /* Dark text for the input */
+
+    --border-color: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.6);
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-main);
+    background-color: var(--bg-dark);
+}
+
+/* Header */
+.app-header {
+    background: #111111;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* Navigation */
+.app-nav {
+    background: #181818;
+    padding: 1rem 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.app-nav button {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.app-nav button:hover {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--primary-green);
+}
+
+.app-nav button.active {
+    background: var(--primary-green);
+    color: #ffffff;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+
+.app-nav button:nth-child(3).active {
+    background: var(--secondary-green);
+    color: #111827;
+    border-color: var(--secondary-green);
+}
+
+/* Main Content */
+.app-main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.tab-content {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+.tab-content h2 {
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.tab-description {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+/* Input Containers (Note & Recall) */
+.note-input-container form,
+.recall-input-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Textarea & Input shared style */
+.note-input-container textarea,
+.recall-input-container textarea {
+    width: 100%;
+    padding: 1.5rem;
+    background: var(--bg-input);
+    color: var(--text-input);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: all 0.3s ease;
+}
+
+.note-input-container textarea:focus,
+.recall-input-container textarea:focus {
+    outline: none;
+    background: #e5e7eb;
+    border-color: var(--primary-green);
+}
+
+/* Buttons shared style */
+.note-input-container button,
+.recall-input-container button {
+    align-self: flex-end;
+    /* Align to right */
+    padding: 1rem 3rem;
+    /* Increased horizontal padding */
+    background: var(--primary-green);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.note-input-container button:hover:not(:disabled),
+.recall-input-container button:hover:not(:disabled) {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.note-input-container button:disabled,
+.recall-input-container button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #4b5563;
+}
+
+/* Results / Related */
+.related-notes {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(16, 185, 129, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.related-notes h4 {
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+.recall-results {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.memory-cluster {
+    background: #252525;
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.memory-cluster h3 {
+    color: var(--secondary-green);
+    margin-bottom: 1.2rem;
+    font-size: 1.25rem;
+}
+
+.recalled-note {
+    background: #2a2a2a;
+    padding: 1.2rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--secondary-green);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recalled-note:last-child {
+    margin-bottom: 0;
+}
+
+.relevance {
+    color: var(--secondary-green);
+    font-weight: 700;
+}
+
+/* Memory Graph */
+.memory-graph-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.graph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Same height/center vertically */
+    width: 100%;
+}
+
+.graph-header h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.graph-header button {
+    padding: 0.4rem 0.8rem;
+    background: transparent;
+    color: var(--primary-green);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+}
+
+.graph-header button:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+.memory-graph-container svg {
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background: #0d0d0d;
+    display: block;
+    margin: 0 auto;
+    box-shadow: inset 0 0 40px #000;
+}
+
+.graph-legend {
+    background: #1c1c1c;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 12px;
+    color: var(--text-muted);
+}
